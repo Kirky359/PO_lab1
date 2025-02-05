@@ -17,13 +17,24 @@ public class Main {
 
        long finish = System.currentTimeMillis();
        long time = finish - start;
+       sum(matrix);
        printMatrix(matrix);
        System.out.println("Start time: " + start);
        System.out.println("Finish time: " + finish);
        System.out.println("Execution time: " + time + " ms");
     }
 
-    public static void printMatrix(int matrix[][]){
+    public static void sum(int[][] matrix){
+        int size = matrix.length;
+        for(int col =0; col<size; col++){
+            int sum =0;
+            for(int row = 0; row<size;row++){
+                sum+=matrix[row][col];
+            }
+            matrix[col][col]=sum;
+        }
+    }
+    public static void printMatrix(int[][] matrix){
         for(int[] row : matrix){
             for( int num: row){
                 System.out.printf("%d ", num );
